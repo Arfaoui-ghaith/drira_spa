@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route, Switch, BrowserRouter as Router, withRouter } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Loading from './pages/Layouts/loading';
+
+// Import css
+import './Apps.scss';
+
+// Import all components
+const home = React.lazy(() => import('./pages/home'));
+
+class App extends Component {
+
+  render() {
+
+    return (
+      <React.Fragment>
+        <Router>
+          <React.Suspense fallback={<div><Loading /></div>}>
+            <Switch>
+              <Route path="/" component={home} />
+            </Switch>
+          </React.Suspense>
+        </Router>
+      </React.Fragment>
+    );
+  }
 }
 
-export default App;
+
+
+export default withRouter(App);
+
+
