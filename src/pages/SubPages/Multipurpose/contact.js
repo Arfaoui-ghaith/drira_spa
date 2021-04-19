@@ -1,14 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Contact extends Component {
+export default function Contact() {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
-
-    render() {
         return (
             <React.Fragment>
                 <section className="contact">
@@ -56,9 +49,6 @@ class Contact extends Component {
                 </section>
             </React.Fragment >
         );
-    }
 }
-
-export default Contact;
 
 

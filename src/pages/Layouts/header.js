@@ -79,7 +79,7 @@ class Header extends Component {
                         <div className="container">
                             <Link className="logo text-uppercase" to="/">
                                 <img src={logo_light} alt="" className="logo-light" height="45" />
-                                <img src={logo_dark} alt="" className="logo-dark" height="45" />
+                                <img src={logo_light} alt="" className="logo-dark" height="45" />
                             </Link>
                             <button className="navbar-toggler" type="button" onClick={this.toggleHeader}>
                                 <i className="mdi mdi-menu"></i>
@@ -95,19 +95,22 @@ class Header extends Component {
 
                                     <ul className="navbar-nav ml-auto navbar-center" id="mySidenav">
                                         <li className="nav-item">
-                                            <a href="#home" className="nav-link">Home</a>
+                                            <a href="#home" className="nav-link">Accueil</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href="#about" className="nav-link">About</a>
+                                            <a href="#about" className="nav-link">À propos</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href="#features" className="nav-link">Features</a>
+                                            <a href="#features" className="nav-link">Avantages</a>
                                         </li>
                                         <li className="nav-item">
                                             <a href="#services" className="nav-link">Services</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a href="#partners" className="nav-link">Partners</a>
+                                            <a href="#equipe" className="nav-link">Equipe</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a href="#partners" className="nav-link">Partenaires</a>
                                         </li>
                                         <li>
                                             <Link onClick={this.toggleModal} to="#" className="nav-link">Contact</Link>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios'
 // Layouts
 import Header from './Layouts/header';
 import Footer from './Layouts/footer';
@@ -10,7 +10,7 @@ import Features from './SubPages/Multipurpose/features';
 import Services from './SubPages/Multipurpose/services';
 import Cta from './SubPages/Multipurpose/cta';
 import Team from './SubPages/Multipurpose/team';
-
+import Landings from './SubPages/Multipurpose/landings'
 import Client from './SubPages/Multipurpose/client';
 import Contact from './SubPages/Multipurpose/contact';
 import '../css/pe-icon-7.css';
@@ -18,17 +18,14 @@ import '../css/pe-icon-7.css';
 import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 
-import BhB1 from '../images/bg-home-business-1.jpg';
-import BhB2 from '../images/bg-home-business-2.jpg';
-import BhB3 from '../images/bg-home-business-3.jpg';
-
 class homeBusiness extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeIndex: 0
-        }
+    state = {
+        activeIndex: 0,
+    }
+
+    state = {
+        landings: []
     }
 
     onSelect = (active, direction) => {
@@ -56,9 +53,26 @@ class homeBusiness extends Component {
         this.setState({ leftIcon, rightIcon });
     };
 
+    fetchLandings = async () => {
+        try{
+             const url ='https://spnetwork.herokuapp.com/api/v1/landings/';
+             const res = await axios({
+                   method: 'get',
+                   url,
+             });
+             
+             this.setState({ landings: res.data.landings });
+             
+         } catch(err){
+             console.log(err);
+         }       
+    };
+   
+
     componentDidMount() {
         document.body.classList = "";
         window.addEventListener("scroll", this.scrollNavigation, true);
+        this.fetchLandings();
     }
 
     scrollNavigation = () => {
@@ -73,7 +87,9 @@ class homeBusiness extends Component {
     }
 
     render() {
+        
 
+        console.log(this.state.landings)
         return (
             <React.Fragment>
 
@@ -90,69 +106,13 @@ class homeBusiness extends Component {
                                 autoplay={this.state.autoplay}
                                 pauseOnVisibility={true}
                                 onSelect={this.visiableOnSelect}
-                                slideshowSpeed={2000}
+                                slideshowSpeed={4000}
                             >
-                                <div className="item">
-                                    <div className="carousel-item active" style={{ backgroundImage: `url(${BhB1})` }}>
-                                        <div className="bg-overlay"></div>
-                                        <div className="home-center">
-                                            <div className="home-desc-center">
-                                                <div className="container">
-                                                    <div className="row justify-content-center">
-                                                        <div className="col-lg-8">
-                                                            <div className="busi-home-title text-white text-center">
-                                                                <h1 className="animated fadeInDownBig animation-delay-1 mb-4">Professional Business Landing Template</h1>
-                                                                <p className="animated fadeInUpBig animation-delay-8 f-16 pt-2 text-light-custom">It is a long established fact that a reader will be distracted by the readable content of a page at its layout. The point of using Lorem normal distribution of letters</p>
-                                                               
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="item">
-                                    <div className="carousel-item active" style={{ backgroundImage: `url(${BhB2})` }}>
-                                        <div className="bg-overlay"></div>
-                                        <div className="home-center">
-                                            <div className="home-desc-center">
-                                                <div className="container">
-                                                    <div className="row justify-content-center">
-                                                        <div className="col-lg-8">
-                                                            <div className="busi-home-title text-white text-center">
-                                                                <h1 className="animated fadeInDownBig animation-delay-1 mb-4">Best Solution for your business</h1>
-                                                                <p className="animated fadeInUpBig animation-delay-8 f-16 pt-2 text-light-custom">It is a long established fact that a reader will be distracted by the readable content of a page at its layout. The point of using Lorem normal distribution of letters</p>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="item">
-                                    <div className="carousel-item active" style={{ backgroundImage: `url(${BhB3})` }}>
-                                        <div className="home-center">
-                                            <div className="home-desc-center">
-                                                <div className="container">
-                                                    <div className="row justify-content-center">
-                                                        <div className="col-lg-8">
-                                                            <div className="busi-home-title text-white text-center">
-                                                                <h1 className="animated fadeInDownBig animation-delay-1 mb-4">Create amazing website with Zairo</h1>
-                                                                <p className="animated fadeInUpBig animation-delay-8 f-16 pt-2 text-light-custom">It is a long established fact that a reader will be distracted by the readable content of a page at its layout. The point of using Lorem normal distribution of letters</p>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {
+                                    this.state.landings.map((landing, index) => (
+                                        <Landings key={index} landing={landing} />
+                                    ))
+                                }
 
                             </RBCarousel>
 

@@ -23,61 +23,38 @@ class Footer extends Component {
                         <Row>
                             <Col lg="3">
                                 <div className="text-white">
-                                    <h3 className="mb-4 footer-list-title f-17">Zairo</h3>
+                                    <h3 className="mb-4 footer-list-title f-17">SPNetwork</h3>
                                     <ul className="footer-icons list-inline mb-4">
                                         <li className="list-inline-item"><Link to="#" className=""><i className="mdi mdi-facebook"></i></Link></li>
                                         <li className="list-inline-item"><Link to="#" className=""><i className="mdi mdi-twitter"></i></Link></li>
                                         <li className="list-inline-item"><Link to="#" className=""><i className="mdi mdi-instagram"></i></Link></li>
                                         <li className="list-inline-item"><Link to="#" className=""><i className="mdi mdi-google"></i></Link></li>
                                     </ul>
-                                    <p className="copyright mt-3">{new Date().getFullYear()} © Zairo.</p>
+                                    <p className="copyright mt-3">{new Date().getFullYear()} © SPNetwork.</p>
                                 </div>
                             </Col>
                             <Col lg="9">
                                 <Row>
-                                    <Col lg="3">
+                                    <Col lg="4">
                                         <div>
-                                            <p className="text-white mb-4 footer-list-title f-17">Company</p>
+                                            <p className="text-white mb-4 footer-list-title f-17">Téléphones</p>
                                             <ul className="list-unstyled footer-list-menu">
-                                                <li><Link to="#">About Us</Link></li>
-                                                <li><Link to="#">Media & Press</Link></li>
-                                                <li><Link to="#">Career</Link></li>
-                                                <li><Link to="#">Blog</Link></li>
+                                                <li><Link to="">Tél TUN: (+216) 20 03 52 00 </Link></li>
+                                                <li><Link to="">Tél FRA : (+33) 6 15 82 43 36</Link></li>
+                                                
                                             </ul>
                                         </div>
                                     </Col>
                                     <Col lg="3">
                                         <div>
-                                            <p className="text-white mb-4 footer-list-title f-17">Resources</p>
+                                            <p className="text-white mb-4 footer-list-title f-17">Email</p>
                                             <ul className="list-unstyled footer-list-menu">
-                                                <li><Link to="#">Help & Support</Link></li>
-                                                <li><Link to="#">Privacy Policy</Link></li>
-                                                <li><Link to="#">Terms & Conditions</Link></li>
+                                                <li><Link to="">mohamed.drira@spnetwork.fr</Link></li>
+                                                
                                             </ul>
                                         </div>
                                     </Col>
-                                    <Col lg="3">
-                                        <div>
-                                            <p className="text-white mb-4 footer-list-title f-17">More Info</p>
-                                            <ul className="list-unstyled footer-list-menu">
-                                                <li><Link to="#">Pricing</Link></li>
-                                                <li><Link to="#">For Marketing</Link></li>
-                                                <li><Link to="#">For CEOs </Link></li>
-                                                <li><Link to="#">For Agencies</Link></li>
-                                                <li><Link to="#">Our Apps</Link></li>
-                                            </ul>
-                                        </div>
-                                    </Col>
-                                    <Col lg="3">
-                                        <div>
-                                            <p className="text-white mb-4 footer-list-title f-17">Help center</p>
-                                            <ul className="list-unstyled footer-list-menu">
-                                                <li><Link to="#">Accounting </Link></li>
-                                                <li><Link to="#">Billing</Link></li>
-                                                <li><Link to="#">General Question</Link></li>
-                                            </ul>
-                                        </div>
-                                    </Col>
+                                  
                                 </Row>
                             </Col>
                         </Row>

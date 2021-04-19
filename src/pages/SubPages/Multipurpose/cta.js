@@ -1,22 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Cta extends Component {
+export default function Cta() {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
-
-    render() {
         return (
             <React.Fragment>
-               <section className="section bg-custom">
+               <section className="section bg-custom3">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-10">
                         <div className="cta-content text-center text-white">
-                            <h3 className="mb-4">“SPNetwork… your development partner.”</h3>
+                            <h3 className="mb-4">“SPNetwork… votre partenaire de développement.”</h3>
                             <p className="text-light f-16">—M.Drira</p>
                         </div>
                     </div>
@@ -25,9 +18,5 @@ class Cta extends Component {
         </section>
             </React.Fragment >
         );
-    }
 }
-
-export default Cta;
-
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Import Images
 import img1 from '../../../images/clients/1.png';
@@ -6,15 +6,8 @@ import img2 from '../../../images/clients/2.png';
 import img3 from '../../../images/clients/3.png';
 import img4 from '../../../images/clients/4.png';
 
-class Client extends Component {
+export default function Client() {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
-
-    render() {
         return (
             <React.Fragment>
                 <section className="section bg-light">
@@ -45,9 +38,6 @@ class Client extends Component {
                 </section>
             </React.Fragment >
         );
-    }
 }
-
-export default Client;
 
 

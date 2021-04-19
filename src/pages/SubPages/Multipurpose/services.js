@@ -1,14 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Services extends Component {
+export default function Services() {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
-
-    render() {
         return (
             <React.Fragment>
                 <section className="section" id="services">
@@ -17,21 +10,20 @@ class Services extends Component {
                             <div className="col-lg-7">
                                 <div className="title text-center mb-5">
                                     <p className="text-uppercase text-muted mb-2 f-13 subtitle">Services</p>
-                                    <h3>What We Do</h3>
-                                    <p className="text-muted mt-3">Dantes remained confused and silent by this explanation of the thoughts which had unconsciously been working in his mind, or rather soul.</p>
+                                    <h3>Ce Que Nous Faisons</h3>
+                                    <p className="text-muted mt-3">Nous sommes à votre entière disposition pour vous apporter les solutions nécessaires.</p>
                                 </div>
                             </div>
                         </div>
-
                         <div className="row">
                             <div className="col-lg-4">
                                 <div className="services-box p-4">
                                     <div className="services-icon mb-3">
-                                        <i className="pe-7s-monitor text-custom h1"></i>
+                                        <i className="pe-7s-news-paper text-custom h1"></i>
                                     </div>
                                     <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Digital Design</h5>
-                                        <p className="text-muted">It is a long established fact that a reader will be distracted by the content of a page when looking at its layout.</p>
+                                        <h5 className="mb-3 f-18">Contrats</h5>
+                                        <p className="text-muted">Proposition d'une large gamme de contrats d’infogérance sur mesure.</p>
                                     </div>
                                 </div>
                             </div>
@@ -41,19 +33,19 @@ class Services extends Component {
                                         <i className="pe-7s-notebook text-custom h1"></i>
                                     </div>
                                     <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Unlimited Colors</h5>
-                                        <p className="text-muted">The European languages are members of the same family. Their separate existence is a myth music, sport</p>
+                                        <h5 className="mb-3 f-18">Spécialistes</h5>
+                                        <p className="text-muted">Des spécialistes à votre disposition.</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-lg-4">
                                 <div className="services-box p-4">
                                     <div className="services-icon mb-3">
-                                        <i className="pe-7s-exapnd2 text-custom h1"></i>
+                                        <i className="pe-7s-mouse text-custom h1"></i>
                                     </div>
                                     <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Strategy Solutions</h5>
-                                        <p className="text-muted">He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed</p>
+                                        <h5 className="mb-3 f-18">Stratégie</h5>
+                                        <p className="text-muted">Des interventions à distance (Remote).</p>
                                     </div>
                                 </div>
                             </div>
@@ -62,22 +54,22 @@ class Services extends Component {
                             <div className="col-lg-4">
                                 <div className="services-box p-4">
                                     <div className="services-icon mb-3">
-                                        <i className="pe-7s-repeat text-custom h1"></i>
+                                        <i className="pe-7s-mail-open-file text-custom h1"></i>
                                     </div>
                                     <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Awesome Support</h5>
-                                        <p className="text-muted">The wonderful serenity has taken of my these sweet mornings of spring which enjoy with my whole heart.</p>
+                                        <h5 className="mb-3 f-18">Joignabilité</h5>
+                                        <p className="text-muted">Le client fait librement appel à Société.</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-lg-4">
                                 <div className="services-box p-4">
                                     <div className="services-icon mb-3">
-                                        <i className="pe-7s-albums text-custom h1"></i>
+                                        <i className="pe-7s-network text-custom h1"></i>
                                     </div>
                                     <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Truly Multipurpose</h5>
-                                        <p className="text-muted">It showed a lady fitted out with a fur hat and boa who sat upright a heavy fur muff that covered the whole.</p>
+                                        <h5 className="mb-3 f-18">Télémaintenance</h5>
+                                        <p className="text-muted">Interventions via la télémaintenance.</p>
                                     </div>
                                 </div>
                             </div>
@@ -87,8 +79,8 @@ class Services extends Component {
                                         <i className="pe-7s-upload text-custom h1"></i>
                                     </div>
                                     <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Easy to customize</h5>
-                                        <p className="text-muted">The languages only differ in their grammar, their and their most common why a new common language</p>
+                                        <h5 className="mb-3 f-18">Disponibilité</h5>
+                                        <p className="text-muted">Une Ressource disponible les jours ouvrés de 9h à 18h.</p>
                                     </div>
                                 </div>
                             </div>
@@ -97,9 +89,6 @@ class Services extends Component {
                 </section>
             </React.Fragment >
         );
-    }
 }
-
-export default Services;
 
 
