@@ -5,7 +5,7 @@ export default function landings({ landing }) {
     return (
         
                                 <div className="item">
-                                    <div className="carousel-item active" style={{ backgroundImage: `url(${BhB1})` }}>
+                                    <div className="carousel-item active" style={{ backgroundImage: `url(http://51.38.227.52/images/landings/${landing.image})` }}>
                                         <div className="bg-overlay"></div>
                                         <div className="home-center">
                                             <div className="home-desc-center">

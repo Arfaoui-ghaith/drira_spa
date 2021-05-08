@@ -1,7 +1,29 @@
 import React from 'react';
 import img2 from '../../../images/features/img-2.png';
+import axios from 'axios';
 
 export default function Features() {
+
+    const [features, setFeatures] = React.useState([]);
+
+    const fetchFeatures = async () => {
+        try{
+            const url ='http://51.38.227.52/api/v1/features/';
+            const res = await axios({
+                  method: 'get',
+                  url,
+            });
+            
+            setFeatures(res.data.features);
+            
+        } catch(err){
+            console.log(err);
+        } 
+    }
+
+    React.useEffect(() => {
+        fetchFeatures();
+    },[]);
     
     return (
         <React.Fragment>
@@ -27,12 +49,12 @@ export default function Features() {
                                 <div className="feautures-content p-5">
                                     <div>
                                         <div>
-                                            <p className="text-white"><i className="mdi mdi-checkbox-marked-outline h5 text-custom mr-2"></i>Un gain d’expertise et de temps.</p>
-                                            <p className="text-white"><i className="mdi mdi-checkbox-marked-outline h5 text-custom mr-2"></i>Un budget établi, prévisionnel et constant.</p>
-                                            <p className="text-white"><i className="mdi mdi-checkbox-marked-outline h5 text-custom mr-2"></i>Une gestion optimisée de votre informatique.</p>
-                                            <p className="text-white"><i className="mdi mdi-checkbox-marked-outline h5 text-custom mr-2"></i>Un passage préventif systématique dans votre entreprise.</p>
-                                            <p className="text-white"><i className="mdi mdi-checkbox-marked-outline h5 text-custom mr-2"></i>Un ingénieur informaticien diplômé et certifié.</p>
-                                            <p className="text-white"><i className="mdi mdi-checkbox-marked-outline h5 text-custom mr-2"></i>Une gestion optimisée de votre informatique.</p>
+                                            {
+                                                features.map((feature,index) => (
+                                                    <p key={index} className="text-white"><i className="mdi mdi-checkbox-marked-outline h5 text-custom mr-2"></i>{feature.title}</p>
+                                                ))
+                                            }
+                                           
                                         </div>
                                     </div>
                                 </div>

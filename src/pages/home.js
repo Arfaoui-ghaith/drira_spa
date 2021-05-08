@@ -55,7 +55,7 @@ class homeBusiness extends Component {
 
     fetchLandings = async () => {
         try{
-             const url ='https://spnetwork.herokuapp.com/api/v1/landings/';
+             const url ='http://51.38.227.52/api/v1/landings/';
              const res = await axios({
                    method: 'get',
                    url,

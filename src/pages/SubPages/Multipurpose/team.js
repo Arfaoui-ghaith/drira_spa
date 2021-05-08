@@ -1,13 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import img1 from '../../../images/team/img-1.jpg';
-import img2 from '../../../images/team/img-2.jpg';
-import img3 from '../../../images/team/img-3.jpg';
-import img4 from '../../../images/team/img-4.jpg';
+import axios from 'axios';
 
 export default function Team() {
 
+    const [members, setMembers] = React.useState([]);
+
+    const fetchMembers = async () => {
+        try{
+            const url ='http://51.38.227.52/api/v1/team/';
+            const res = await axios({
+                  method: 'get',
+                  url,
+            });
+            
+            setMembers(res.data.members);
+            
+        } catch(err){
+            console.log(err);
+        } 
+    }
+
+    React.useEffect(() => {
+        fetchMembers();
+    },[]);
 
         return (
             <React.Fragment>
@@ -24,50 +41,22 @@ export default function Team() {
                         </div>
 
                         <div className="row">
-                            <div className="col-lg-3 col-md-6">
-                                <div className="team-box bg-white mt-4">
-                                    <div className="team-img">
-                                        <img src={img1} alt="" className="img-fluid mx-auto d-block" />
+                            {
+                                members.map((member,index) => (
+                                    <div key={index} className="col-lg-3 col-md-6">
+                                        <div className="team-box bg-white mt-4">
+                                            <div className="team-img">
+                                                <img src={`http://51.38.227.52/images/members/${member.image}`} alt="" className="img-fluid mx-auto d-block" />
+                                            </div>
+                                            <div className="team-content text-center p-3">
+                                                <h5 className="team-name f-17"><Link to="#" className="text-dark">{`${member.last_name} ${member.first_name}`}</Link></h5>
+                                                <p className="mb-0 text-custom f-14">{member.title}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="team-content text-center p-3">
-                                        <h5 className="team-name f-17"><Link to="#" className="text-dark">Kenneth Simpson</Link></h5>
-                                        <p className="mb-0 text-custom f-14">CEO/Founder</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6">
-                                <div className="team-box bg-white mt-4">
-                                    <div className="team-img">
-                                        <img src={img2} alt="" className="img-fluid mx-auto d-block" />
-                                    </div>
-                                    <div className="team-content text-center p-3">
-                                        <h5 className="team-name f-17"><Link to="#" className="text-dark">Daniel Malave</Link></h5>
-                                        <p className="mb-0 text-custom f-14">Web Developer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6">
-                                <div className="team-box bg-white mt-4">
-                                    <div className="team-img">
-                                        <img src={img3} alt="" className="img-fluid mx-auto d-block" />
-                                    </div>
-                                    <div className="team-content text-center p-3">
-                                        <h5 className="team-name f-17"><Link to="#" className="text-dark">James Peck</Link></h5>
-                                        <p className="mb-0 text-custom f-14">Founder</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6">
-                                <div className="team-box bg-white mt-4">
-                                    <div className="team-img">
-                                        <img src={img4} alt="" className="img-fluid mx-auto d-block" />
-                                    </div>
-                                    <div className="team-content text-center p-3">
-                                        <h5 className="team-name f-17"><Link to="#" className="text-dark">Marc Johnson</Link></h5>
-                                        <p className="mb-0 text-custom f-14">Web Designer</p>
-                                    </div>
-                                </div>
-                            </div>
+                                ))
+                            }
+                    
                         </div>
 
                     </div>

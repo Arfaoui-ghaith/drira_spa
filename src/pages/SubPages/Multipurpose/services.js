@@ -1,6 +1,27 @@
 import React from 'react';
-
+import axios from 'axios';
 export default function Services() {
+
+    const [services, setServices] = React.useState([]);
+
+    const fetchServices = async () => {
+        try{
+            const url ='http://51.38.227.52/api/v1/services/';
+            const res = await axios({
+                  method: 'get',
+                  url,
+            });
+            
+            setServices(res.data.services);
+            
+        } catch(err){
+            console.log(err);
+        } 
+    }
+
+    React.useEffect(() => {
+        fetchServices();
+    },[]);
 
         return (
             <React.Fragment>
@@ -16,74 +37,23 @@ export default function Services() {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-lg-4">
-                                <div className="services-box p-4">
-                                    <div className="services-icon mb-3">
-                                        <i className="pe-7s-news-paper text-custom h1"></i>
+                            {
+                                services.map((service,index) => (
+                                    <div className="col-lg-4">
+                                        <div className="services-box p-4">
+                                            <div className="services-icon mb-3">
+                                                <i className={`${service.icon} text-custom h1`}></i>
+                                            </div>
+                                            <div className="services-desc">
+                                                <h5 className="mb-3 f-18">{service.title}</h5>
+                                                <p className="text-muted">{service.description}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Contrats</h5>
-                                        <p className="text-muted">Proposition d'une large gamme de contrats d’infogérance sur mesure.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4">
-                                <div className="services-box p-4">
-                                    <div className="services-icon mb-3">
-                                        <i className="pe-7s-notebook text-custom h1"></i>
-                                    </div>
-                                    <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Spécialistes</h5>
-                                        <p className="text-muted">Des spécialistes à votre disposition.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4">
-                                <div className="services-box p-4">
-                                    <div className="services-icon mb-3">
-                                        <i className="pe-7s-mouse text-custom h1"></i>
-                                    </div>
-                                    <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Stratégie</h5>
-                                        <p className="text-muted">Des interventions à distance (Remote).</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-lg-4">
-                                <div className="services-box p-4">
-                                    <div className="services-icon mb-3">
-                                        <i className="pe-7s-mail-open-file text-custom h1"></i>
-                                    </div>
-                                    <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Joignabilité</h5>
-                                        <p className="text-muted">Le client fait librement appel à Société.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4">
-                                <div className="services-box p-4">
-                                    <div className="services-icon mb-3">
-                                        <i className="pe-7s-network text-custom h1"></i>
-                                    </div>
-                                    <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Télémaintenance</h5>
-                                        <p className="text-muted">Interventions via la télémaintenance.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4">
-                                <div className="services-box p-4">
-                                    <div className="services-icon mb-3">
-                                        <i className="pe-7s-upload text-custom h1"></i>
-                                    </div>
-                                    <div className="services-desc">
-                                        <h5 className="mb-3 f-18">Disponibilité</h5>
-                                        <p className="text-muted">Une Ressource disponible les jours ouvrés de 9h à 18h.</p>
-                                    </div>
-                                </div>
-                            </div>
+                                ))
+                            }
+                            
+                           
                         </div>
                     </div>
                 </section>
